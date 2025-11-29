@@ -33,20 +33,20 @@ export default function DataCleaning({
 
   return (
     <div className="space-y-6">
-      <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg p-6 text-white">
+      <div className="bg-gradient-to-r from-violet-600 to-purple-700 rounded-xl p-8 text-white shadow-xl">
         <div className="flex items-center gap-3 mb-2">
-          <Sparkles className="w-6 h-6" />
-          <h2 className="text-2xl font-bold">Data Cleaning</h2>
+          <Sparkles className="w-8 h-8" />
+          <h2 className="text-3xl font-bold">Data Quality Enhancement</h2>
         </div>
-        <p className="text-blue-100">
-          Configure cleaning options to handle missing values, duplicates, and outliers
+        <p className="text-purple-100 text-lg">
+          Configure intelligent cleaning strategies to ensure data integrity and reliability
         </p>
       </div>
 
-      <form onSubmit={handleSubmit} className="bg-white rounded-lg border border-gray-200 p-6 space-y-6">
+      <form onSubmit={handleSubmit} className="bg-white rounded-xl border border-gray-200 p-8 space-y-8 shadow-lg">
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-3">
-            Handle Missing Values
+          <label className="block text-lg font-bold text-gray-900 mb-4">
+            Missing Value Strategy
           </label>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
             {[
@@ -162,7 +162,7 @@ export default function DataCleaning({
         <button
           type="submit"
           disabled={isProcessing}
-          className="w-full py-3 px-6 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 transition-colors"
+          className="w-full py-4 px-6 bg-gradient-to-r from-violet-600 to-purple-600 text-white rounded-xl font-bold text-lg hover:from-violet-700 hover:to-purple-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 transition-all shadow-lg hover:shadow-xl"
         >
           {isProcessing ? (
             <>
@@ -179,8 +179,8 @@ export default function DataCleaning({
       </form>
 
       {cleanedCount !== undefined && (
-        <div className="bg-green-50 border border-green-200 rounded-lg p-6">
-          <h3 className="text-lg font-semibold text-green-900 mb-4">Cleaning Results</h3>
+        <div className="bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-300 rounded-xl p-8 shadow-lg">
+          <h3 className="text-2xl font-bold text-green-900 mb-6">Cleaning Results</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
               <p className="text-sm text-green-700 mb-1">Original Rows</p>

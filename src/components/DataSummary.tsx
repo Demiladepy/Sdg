@@ -1,4 +1,4 @@
-import { BarChart3, Database, AlertCircle, CheckCircle } from 'lucide-react';
+import { BarChart3, Database, AlertCircle, CheckCircle, Activity } from 'lucide-react';
 import { ColumnMeta } from '../types';
 
 interface DataSummaryProps {
@@ -14,8 +14,18 @@ export default function DataSummary({ rowCount, columnCount, columns }: DataSumm
 
   return (
     <div className="space-y-6">
+      <div className="bg-gradient-to-r from-slate-800 to-slate-900 rounded-xl p-8 text-white shadow-xl mb-6">
+        <div className="flex items-center gap-3 mb-2">
+          <Activity className="w-8 h-8" />
+          <h2 className="text-3xl font-bold">Dataset Overview</h2>
+        </div>
+        <p className="text-slate-300 text-lg">
+          Comprehensive statistical analysis of your fiscal and economic indicators
+        </p>
+      </div>
+
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg p-6 border border-blue-200">
+        <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 border border-blue-200 shadow-lg hover:shadow-xl transition-all">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm font-medium text-blue-600">Total Rows</p>
@@ -25,7 +35,7 @@ export default function DataSummary({ rowCount, columnCount, columns }: DataSumm
           </div>
         </div>
 
-        <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-lg p-6 border border-green-200">
+        <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-6 border border-green-200 shadow-lg hover:shadow-xl transition-all">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm font-medium text-green-600">Columns</p>
@@ -35,7 +45,7 @@ export default function DataSummary({ rowCount, columnCount, columns }: DataSumm
           </div>
         </div>
 
-        <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-lg p-6 border border-orange-200">
+        <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl p-6 border border-orange-200 shadow-lg hover:shadow-xl transition-all">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm font-medium text-orange-600">Missing Values</p>
@@ -45,7 +55,7 @@ export default function DataSummary({ rowCount, columnCount, columns }: DataSumm
           </div>
         </div>
 
-        <div className="bg-gradient-to-br from-red-50 to-red-100 rounded-lg p-6 border border-red-200">
+        <div className="bg-gradient-to-br from-red-50 to-red-100 rounded-xl p-6 border border-red-200 shadow-lg hover:shadow-xl transition-all">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm font-medium text-red-600">Outliers</p>
@@ -56,9 +66,10 @@ export default function DataSummary({ rowCount, columnCount, columns }: DataSumm
         </div>
       </div>
 
-      <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
-        <div className="px-6 py-4 bg-gray-50 border-b border-gray-200">
-          <h3 className="text-lg font-semibold text-gray-900">Column Analysis</h3>
+      <div className="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-lg">
+        <div className="px-6 py-4 bg-gradient-to-r from-slate-50 to-slate-100 border-b border-gray-200">
+          <h3 className="text-xl font-bold text-gray-900">Detailed Column Analysis</h3>
+          <p className="text-sm text-gray-600 mt-1">Statistical breakdown by variable</p>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full">

@@ -1,4 +1,5 @@
 import { BarChart, Bar, LineChart, Line, ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Cell } from 'recharts';
+import { TrendingUp } from 'lucide-react';
 import { DataRow, ColumnMeta } from '../types';
 
 interface DataVisualizationProps {
@@ -74,20 +75,28 @@ export default function DataVisualization({ data, columns }: DataVisualizationPr
 
   return (
     <div className="space-y-8">
-      <div className="bg-gradient-to-r from-green-600 to-green-700 rounded-lg p-6 text-white">
-        <h2 className="text-2xl font-bold mb-2">Data Visualizations</h2>
-        <p className="text-green-100">
-          Interactive charts to explore your data patterns and distributions
+      <div className="bg-gradient-to-r from-emerald-600 to-teal-700 rounded-xl p-8 text-white shadow-xl">
+        <div className="flex items-center gap-3 mb-2">
+          <TrendingUp className="w-8 h-8" />
+          <h2 className="text-3xl font-bold">Advanced Visualizations</h2>
+        </div>
+        <p className="text-emerald-100 text-lg">
+          Interactive charts revealing patterns, trends, and relationships in your economic data
         </p>
       </div>
 
       {numericColumns.length > 0 && (
         <div className="space-y-6">
-          <h3 className="text-xl font-semibold text-gray-900">Numeric Distributions</h3>
+          <div className="flex items-center gap-3 mb-2">
+            <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+              <BarChart className="w-6 h-6 text-white" />
+            </div>
+            <h3 className="text-2xl font-bold text-gray-900">Numeric Distributions</h3>
+          </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {numericColumns.slice(0, 4).map((col) => (
-              <div key={col} className="bg-white rounded-lg border border-gray-200 p-6">
-                <h4 className="text-lg font-medium text-gray-900 mb-4">{col}</h4>
+              <div key={col} className="bg-white rounded-xl border border-gray-200 p-6 shadow-lg hover:shadow-xl transition-all">
+                <h4 className="text-lg font-semibold text-gray-900 mb-4">{col}</h4>
                 <ResponsiveContainer width="100%" height={250}>
                   <BarChart data={getDistributionData(col)}>
                     <CartesianGrid strokeDasharray="3 3" />
@@ -105,11 +114,16 @@ export default function DataVisualization({ data, columns }: DataVisualizationPr
 
       {categoricalColumns.length > 0 && (
         <div className="space-y-6">
-          <h3 className="text-xl font-semibold text-gray-900">Categorical Distributions</h3>
+          <div className="flex items-center gap-3 mb-2">
+            <div className="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center">
+              <BarChart className="w-6 h-6 text-white" />
+            </div>
+            <h3 className="text-2xl font-bold text-gray-900">Categorical Distributions</h3>
+          </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {categoricalColumns.slice(0, 4).map((col) => (
-              <div key={col} className="bg-white rounded-lg border border-gray-200 p-6">
-                <h4 className="text-lg font-medium text-gray-900 mb-4">{col} (Top 10)</h4>
+              <div key={col} className="bg-white rounded-xl border border-gray-200 p-6 shadow-lg hover:shadow-xl transition-all">
+                <h4 className="text-lg font-semibold text-gray-900 mb-4">{col} (Top 10)</h4>
                 <ResponsiveContainer width="100%" height={250}>
                   <BarChart data={getCategoryDistribution(col)} layout="vertical">
                     <CartesianGrid strokeDasharray="3 3" />
@@ -131,8 +145,13 @@ export default function DataVisualization({ data, columns }: DataVisualizationPr
 
       {numericColumns.length >= 2 && (
         <div className="space-y-6">
-          <h3 className="text-xl font-semibold text-gray-900">Correlation Analysis</h3>
-          <div className="bg-white rounded-lg border border-gray-200 p-6">
+          <div className="flex items-center gap-3 mb-2">
+            <div className="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center">
+              <TrendingUp className="w-6 h-6 text-white" />
+            </div>
+            <h3 className="text-2xl font-bold text-gray-900">Correlation Analysis</h3>
+          </div>
+          <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-lg">
             <h4 className="text-lg font-medium text-gray-900 mb-4">
               {numericColumns[0]} vs {numericColumns[1]}
             </h4>
@@ -151,8 +170,13 @@ export default function DataVisualization({ data, columns }: DataVisualizationPr
 
       {numericColumns.length > 0 && data.length > 1 && (
         <div className="space-y-6">
-          <h3 className="text-xl font-semibold text-gray-900">Trend Analysis</h3>
-          <div className="bg-white rounded-lg border border-gray-200 p-6">
+          <div className="flex items-center gap-3 mb-2">
+            <div className="w-10 h-10 bg-orange-600 rounded-lg flex items-center justify-center">
+              <LineChart className="w-6 h-6 text-white" />
+            </div>
+            <h3 className="text-2xl font-bold text-gray-900">Trend Analysis</h3>
+          </div>
+          <div className="bg-white rounded-xl border border-gray-200 p-6 shadow-lg">
             <h4 className="text-lg font-medium text-gray-900 mb-4">
               {numericColumns[0]} Over Time
             </h4>

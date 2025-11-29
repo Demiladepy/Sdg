@@ -37,27 +37,32 @@ export default function DataTable({ data, title }: DataTableProps) {
   };
 
   return (
-    <div className="space-y-4">
-      <div className="flex items-center justify-between">
-        <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
+    <div className="space-y-6">
+      <div className="flex items-center justify-between bg-gradient-to-r from-slate-50 to-slate-100 rounded-xl p-6 border border-slate-200">
+        <div>
+          <h3 className="text-2xl font-bold text-gray-900">{title}</h3>
+          <p className="text-sm text-gray-600 mt-1">
+            {data.length.toLocaleString()} rows • {columns.length} columns
+          </p>
+        </div>
         <button
           onClick={handleExport}
-          className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+          className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-xl font-semibold hover:from-green-700 hover:to-emerald-700 transition-all shadow-lg hover:shadow-xl"
         >
-          <Download className="w-4 h-4" />
+          <Download className="w-5 h-5" />
           Export CSV
         </button>
       </div>
 
-      <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+      <div className="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-lg">
         <div className="overflow-x-auto">
           <table className="w-full">
-            <thead className="bg-gray-50 border-b border-gray-200">
+            <thead className="bg-gradient-to-r from-slate-100 to-slate-50 border-b-2 border-gray-300">
               <tr>
                 {columns.map((col) => (
                   <th
                     key={col}
-                    className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider whitespace-nowrap"
+                    className="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider whitespace-nowrap"
                   >
                     {col}
                   </th>
@@ -81,7 +86,7 @@ export default function DataTable({ data, title }: DataTableProps) {
         </div>
 
         {totalPages > 1 && (
-          <div className="flex items-center justify-between px-6 py-4 border-t border-gray-200 bg-gray-50">
+          <div className="flex items-center justify-between px-6 py-4 border-t-2 border-gray-200 bg-gradient-to-r from-slate-50 to-slate-100">
             <p className="text-sm text-gray-600">
               Showing {startIdx + 1} to {Math.min(endIdx, data.length)} of {data.length} rows
             </p>
